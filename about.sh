@@ -6,7 +6,7 @@ NC='\e[0m'
 
 clear
 echo -e "${RED}=================================================${NC}"
-echo -e "          ${RED}Premium Auto Script By EvoTeam${NC}           "
+echo -e "          ${RED}Premium Auto Script By mrtun${NC}           "
 echo -e "${RED}=================================================${NC}"
 echo -e " System Operation Support:                     "
 echo -e " - Debian 9 & Debian 10 64 Bit                 "
