@@ -5,12 +5,12 @@ NC='\e[0m'
 MYIP=$(wget -qO- https://icanhazip.com);
 echo "Checking VPS"
 apt install jq curl -y
-DOMAIN=kayyo.online
+DOMAIN=mrtunnelvpn.store
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-SUB_DOMAIN=${sub}.kayyo.online
-WILDCARD=*.${sub}.kayyo.online
-CF_ID=5faktadunia@gmail.com
-CF_KEY=b2185bbc8fc43ebbf4132daf1eee48a32b5d3
+SUB_DOMAIN=${sub}.mrtunnelvpn.store
+WILDCARD=*.${sub}.mrtunnelvpn.store
+CF_ID=mrupco2024@gmail.com
+CF_KEY=9e084868b0244eaf8ab508ddb525b5a82b2ac
 set -euo pipefail
 IP=$(wget -qO- https://icanhazip.com);
 echo "Updating DNS for ${SUB_DOMAIN}..."
