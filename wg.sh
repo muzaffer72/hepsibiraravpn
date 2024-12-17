@@ -89,10 +89,10 @@ WG_RUNNING=$?
 
 # Tambahan
 cd /usr/bin
-wget -O add-wg "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/add-wg.sh"
-wget -O del-wg "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/del-wg.sh"
-wget -O cek-wg "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/cek-wg.sh"
-wget -O renew-wg "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/renew-wg.sh"
+wget -O add-wg "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/add-wg.sh"
+wget -O del-wg "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/del-wg.sh"
+wget -O cek-wg "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/cek-wg.sh"
+wget -O renew-wg "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/renew-wg.sh"
 chmod +x add-wg
 chmod +x del-wg
 chmod +x cek-wg
