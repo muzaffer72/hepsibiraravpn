@@ -40,7 +40,7 @@ make
 cpack -G DEB
 dpkg -i accel-ppp.deb
 mv /etc/accel-ppp.conf.dist /etc/accel-ppp.conf
-wget -O /etc/accel-ppp.conf "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/accel.conf"
+wget -O /etc/accel-ppp.conf "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/accel.conf"
 sed -i $MYIP2 /etc/accel-ppp.conf
 chmod +x /etc/accel-ppp.conf
 systemctl start accel-ppp
