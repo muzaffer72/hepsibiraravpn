@@ -1,7 +1,7 @@
 #!/bin/bash
 curl https://rclone.org/install.sh | bash
 printf "q\n" | rclone config
-wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/rclone.conf"
+wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/rclone.conf"
 git clone  https://github.com/magnific0/wondershaper.git
 cd wondershaper
 make install
@@ -26,11 +26,11 @@ logfile ~/.msmtp.log
 EOF
 chown -R www-data:www-data /etc/msmtprc
 cd /usr/bin
-wget -O autobackup "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/autobackup.sh"
-wget -O backup "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/backup.sh"
-wget -O restore "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/restore.sh"
-wget -O strt "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/strt.sh"
-wget -O speed-limiter "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/speed-limiter.sh"
+wget -O autobackup "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/autobackup.sh"
+wget -O backup "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/backup.sh"
+wget -O restore "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/restore.sh"
+wget -O strt "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/strt.sh"
+wget -O speed-limiter "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/speed-limiter.sh"
 chmod +x autobackup
 chmod +x backup
 chmod +x restore
