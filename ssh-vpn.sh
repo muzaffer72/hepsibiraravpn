@@ -21,7 +21,7 @@ commonname=EvoTeamMalaysia
 email=admin@EvoTeamMalaysia.com
 
 # simple password minimal
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/password"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -88,14 +88,14 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/nginx.conf"
 mkdir -p /home/vps/public_html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/vps.conf"
 /etc/init.d/nginx restart
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -125,7 +125,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 # install squid
 cd
 apt -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/squid3.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # setting vnstat
@@ -212,43 +212,43 @@ echo 'Config file is at /usr/local/ddos/ddos.conf'
 echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 
 # banner /etc/issue.net
-wget -O /etc/issue.net "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/banner.conf"
+wget -O /etc/issue.net "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/banner.conf"
 echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # download script
 cd /usr/bin
-wget -O add-host "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/add-host.sh"
-wget -O about "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/about.sh"
-wget -O menu "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/menu.sh"
-wget -O add-ssh "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/add-ssh.sh"
-wget -O trial-ssh "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/trial-ssh.sh"
-wget -O del-ssh "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/del-ssh.sh"
-wget -O list-ssh "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/list-ssh.sh"
-wget -O delete "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/delete.sh"
-wget -O cek-ssh "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/cek-ssh.sh"
-wget -O restart "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/speedtest_cli.py"
-wget -O info "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/info.sh"
-wget -O ram "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/ram.sh"
-wget -O renew-ssh "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/renew-ssh.sh"
-wget -O autokill "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/autokill.sh"
-wget -O mulog "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/mulog.sh"
-wget -O tendang "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/tendang.sh"
-wget -O change-port "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/change.sh"
-wget -O port-ovpn "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/port-ovpn.sh"
-wget -O port-ssl "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/port-ssl.sh"
-wget -O port-wg "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/port-wg.sh"
-wget -O port-tr "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/port-tr.sh"
-wget -O port-sstp "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/port-sstp.sh"
-wget -O port-squid "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/port-squid.sh"
-wget -O port-ws "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/port-ws.sh"
-wget -O port-vless "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/port-vless.sh"
-wget -O webmin "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/webmin.sh"
-wget -O xp "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/xp.sh"
-wget -O kernel-up "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/kernel.sh"
-wget -O update "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/update-1.2.sh"
-wget -O auto-reboot "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/reboot.sh"
+wget -O add-host "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/add-host.sh"
+wget -O about "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/about.sh"
+wget -O menu "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/menu.sh"
+wget -O add-ssh "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/add-ssh.sh"
+wget -O trial-ssh "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/trial-ssh.sh"
+wget -O del-ssh "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/del-ssh.sh"
+wget -O list-ssh "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/list-ssh.sh"
+wget -O delete "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/delete.sh"
+wget -O cek-ssh "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/cek-ssh.sh"
+wget -O restart "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/restart.sh"
+wget -O speedtest "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/speedtest_cli.py"
+wget -O info "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/info.sh"
+wget -O ram "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/ram.sh"
+wget -O renew-ssh "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/renew-ssh.sh"
+wget -O autokill "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/autokill.sh"
+wget -O mulog "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/mulog.sh"
+wget -O tendang "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/tendang.sh"
+wget -O change-port "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/change.sh"
+wget -O port-ovpn "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-ovpn.sh"
+wget -O port-ssl "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-ssl.sh"
+wget -O port-wg "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-wg.sh"
+wget -O port-tr "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-tr.sh"
+wget -O port-sstp "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-sstp.sh"
+wget -O port-squid "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-squid.sh"
+wget -O port-ws "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-ws.sh"
+wget -O port-vless "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-vless.sh"
+wget -O webmin "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/webmin.sh"
+wget -O xp "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/xp.sh"
+wget -O kernel-up "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/kernel.sh"
+wget -O update "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/update-1.2.sh"
+wget -O auto-reboot "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/reboot.sh"
 chmod +x add-host
 chmod +x menu
 chmod +x add-ssh
