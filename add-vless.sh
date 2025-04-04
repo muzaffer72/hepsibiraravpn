@@ -3,7 +3,7 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- https://icanhazip.com);
-echo "Checking VPS"
+echo "VPS Kontrol Ediliyor"
 clear
 source /var/lib/premium-script/ipvps.conf
 if [[ "$IP" = "" ]]; then
@@ -14,17 +14,17 @@ fi
 tls="$(cat ~/log-install.txt | grep -w "Vless TLS" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "Vless None TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-		read -rp "User: " -e user
+		read -rp "Kullanıcı Adı: " -e user
 		CLIENT_EXISTS=$(grep -w $user /etc/v2ray/vless.json | wc -l)
 
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 			echo ""
-			echo "A Client Username Was Already Created, Please Enter New Username"
+			echo "Bu Kullanıcı Adı Zaten Var, Lütfen Yeni Bir Kullanıcı Adı Girin"
 			exit 1
 		fi
 	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
-read -p "Expired (days): " masaaktif
+read -p "Son Kullanma Tarihi (gün): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#tls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/v2ray/vless.json
@@ -37,21 +37,21 @@ systemctl restart v2ray@vnone
 clear
 echo -e ""
 echo -e "==============================="
-echo -e "V2RAY/VLESS Information Account"
+echo -e "V2RAY/VLESS Hesap Bilgisi"
 echo -e "==============================="
-echo -e "Remarks        : ${user}"
-echo -e "Domain         : ${domain}"
-echo -e "port TLS       : $tls"
-echo -e "port none TLS  : $none"
-echo -e "id             : ${uuid}"
-echo -e "Encryption     : none"
-echo -e "network        : ws"
-echo -e "path           : /v2ray"
+echo -e "Açıklama      : ${user}"
+echo -e "Domain        : ${domain}"
+echo -e "TLS Portu     : $tls"
+echo -e "None TLS Portu: $none"
+echo -e "id            : ${uuid}"
+echo -e "Şifreleme     : none"
+echo -e "Ağ            : ws"
+echo -e "Path          : /v2ray"
 echo -e "==============================="
-echo -e "link TLS       : ${vlesslink1}"
+echo -e "TLS Linki     : ${vlesslink1}"
 echo -e ""
-echo -e "link none TLS  : ${vlesslink2}"
+echo -e "None TLS Linki: ${vlesslink2}"
 echo -e "==============================="
-echo -e "Expired On     : $exp"
-echo -e "Create By EvoTeamMalaysia"
+echo -e "Son Kullanma Tarihi: $exp"
+echo -e "Onvao.net Premium vpn Kurulum scripti"
 echo -e ""
