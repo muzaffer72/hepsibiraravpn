@@ -3,7 +3,7 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- https://icanhazip.com);
-echo "Checking VPS"
+echo "VPS Kontrol Ediliyor"
 
 clear
 MYIP=$(wget -qO- https://icanhazip.com);
@@ -11,18 +11,18 @@ ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | c
 ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 echo -e "======================================"
 echo -e ""
-echo -e "     [1]  Change Port TCP $ovpn"
-echo -e "     [2]  Change Port UDP $ovpn2"
-echo -e "     [x]  Exit"
+echo -e "     [1]  TCP Portunu Değiştir $ovpn"
+echo -e "     [2]  UDP Portunu Değiştir $ovpn2"
+echo -e "     [x]  Çıkış"
 echo -e "======================================"
 echo -e ""
-read -p "     Select From Options [1-2 or x] :  " prot
+read -p "     Seçeneklerden birini seçin [1-2 veya x] :  " prot
 echo -e ""
 case $prot in
 1)
-read -p "New Port OpenVPN: " vpn
+read -p "Yeni Port OpenVPN: " vpn
 if [ -z $vpn ]; then
-echo "Please Input Port"
+echo "Lütfen Port Girin"
 exit 0
 fi
 cek=$(netstat -nutlp | grep -w $vpn)
@@ -75,15 +75,15 @@ systemctl disable --now openvpn-server@server-tcp-$ovpn > /dev/null
 systemctl enable --now openvpn-server@server-tcp-$vpn > /dev/null
 sed -i "s/   - OpenVPN                 : TCP $ovpn, UDP $ovpn2, SSL 442/   - OpenVPN                 : TCP $vpn, UDP $ovpn2, SSL 442/g" /root/log-install.txt
 sed -i "s/$ovpn/$vpn/g" /etc/stunnel/stunnel.conf
-echo -e "\e[032;1mPort $vpn modified successfully\e[0m"
+echo -e "\e[032;1mPort $vpn başarıyla değiştirildi\e[0m"
 else
-echo "Port $vpn is used"
+echo "Port $vpn zaten kullanılıyor"
 fi
 ;;
 2)
-read -p "New Port OpenVPN: " vpn
+read -p "Yeni Port OpenVPN: " vpn
 if [ -z $vpn ]; then
-echo "Please Input Port"
+echo "Lütfen Port Girin"
 exit 0
 fi
 cek=$(netstat -nutlp | grep -w $vpn)
@@ -136,9 +136,9 @@ cp /etc/openvpn/client-udp-$vpn.ovpn /home/vps/public_html/client-udp-$vpn.ovpn
 systemctl disable --now openvpn-server@server-udp-$ovpn2 > /dev/null
 systemctl enable --now openvpn-server@server-udp-$vpn > /dev/null
 sed -i "s/   - OpenVPN                 : TCP $ovpn, UDP $ovpn2, SSL 442/   - OpenVPN                 : TCP $ovpn, UDP $vpn, SSL 442/g" /root/log-install.txt
-echo -e "\e[032;1mPort $vpn modified successfully\e[0m"
+echo -e "\e[032;1mPort $vpn başarıyla değiştirildi\e[0m"
 else
-echo "Port $vpn is used"
+echo "Port $vpn zaten kullanılıyor"
 fi
 ;;
 x)
@@ -146,7 +146,6 @@ exit
 menu
 ;;
 *)
-echo "Please enter an correct number"
+echo "Lütfen doğru bir numara girin"
 ;;
 esac
-
