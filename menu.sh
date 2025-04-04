@@ -8,115 +8,115 @@ clear
 echo -e ""
 echo -e "${BLUE}=================================================================${NC}"
 echo -e "${GREEN}=================================================================${NC}"
-figlet EvoTeamMalaysia | lolcat
+figlet onvaonet | lolcat
 echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}======================= ${RED}Menu SSH & OpenVPN ${BLUE}======================${NC}"
+echo -e "${BLUE}======================= ${RED}SSH & OpenVPN Menüsü ${BLUE}======================${NC}"
 echo -e ""
-echo -e "- add-ssh      : Create SSH & OpenVPN Account" | lolcat
-echo -e "- trial-ssh    : Generate SSH & OpenVPN Trial Account" | lolcat
-echo -e "- renew-ssh    : Extending SSH & OpenVPN Account Active Life" | lolcat
-echo -e "- del-ssh      : Delete SSH & OpenVPN Account" | lolcat
-echo -e "- cek-ssh      : Check User Login SSH & OpenVPN" | lolcat
-echo -e "- list-ssh     : Daftar Member SSH & OpenVPN" | lolcat
-echo -e "- delete       : Delete User Expired SSH & OpenVPN" | lolcat
-echo -e "- autokill     : Set up Autokill SSH" | lolcat
-echo -e "- mulog        : Displays Users Who Do Multi Login SSH" | lolcat
-echo -e "- restart      : Restart Service Dropbear, Squid3, OpenVPN dan SSH" | lolcat
-echo -e ""
-echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}========================= ${RED}Menu Wireguard ${BLUE}========================${NC}"
-echo -e ""
-echo -e "- add-wg       : Create Wireguard Account" | lolcat
-echo -e "- del-wg       : Delete Wireguard Account" | lolcat
-echo -e "- cek-wg       : Check User Login Wireguard" | lolcat
-echo -e "- renew-wg     : Extending Wireguard Account Active Life" | lolcat
-echo -e "- wg show      : Check Wireguard User Interface" | lolcat
+echo -e "- add-ssh      : SSH & OpenVPN Hesabı Oluştur" | lolcat
+echo -e "- trial-ssh    : SSH & OpenVPN Deneme Hesabı Oluştur" | lolcat
+echo -e "- renew-ssh    : SSH & OpenVPN Hesabı Aktif Süresini Uzat" | lolcat
+echo -e "- del-ssh      : SSH & OpenVPN Hesabını Sil" | lolcat
+echo -e "- cek-ssh      : SSH & OpenVPN Kullanıcı Girişini Kontrol Et" | lolcat
+echo -e "- list-ssh     : SSH & OpenVPN Üye Listesi" | lolcat
+echo -e "- delete       : Süresi Dolmuş SSH & OpenVPN Kullanıcılarını Sil" | lolcat
+echo -e "- autokill     : SSH İçin Autokill Ayarla" | lolcat
+echo -e "- mulog        : Birden Fazla SSH Girişi Yapan Kullanıcıları Göster" | lolcat
+echo -e "- restart      : Dropbear, Squid3, OpenVPN ve SSH Servislerini Yeniden Başlat" | lolcat
 echo -e ""
 echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}=========================== ${RED}Menu L2TP ${BLUE}===========================${NC}"
+echo -e "${BLUE}========================= ${RED}Wireguard Menüsü ${BLUE}========================${NC}"
 echo -e ""
-echo -e "- add-l2tp     : Creating L2TP Account" | lolcat
-echo -e "- del-l2tp     : Deleting L2TP Account" | lolcat
-echo -e "- renew-l2tp   : Extending L2TP Account Active Life" | lolcat
-echo -e ""
-echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}=========================== ${RED}Menu PPTP ${BLUE}===========================${NC}"
-echo -e ""
-echo -e "- add-pptp     : Create Account PPTP" | lolcat
-echo -e "- del-pptp     : Delete PPTP Account" | lolcat
-echo -e "- renew-pptp   : Extending PPTP Account Active Life" | lolcat
-echo -e "- cek-pptp     : Check User Login PPTP" | lolcat
+echo -e "- add-wg       : Wireguard Hesabı Oluştur" | lolcat
+echo -e "- del-wg       : Wireguard Hesabını Sil" | lolcat
+echo -e "- cek-wg       : Wireguard Kullanıcı Girişini Kontrol Et" | lolcat
+echo -e "- renew-wg     : Wireguard Hesabı Aktif Süresini Uzat" | lolcat
+echo -e "- wg show      : Wireguard Kullanıcı Arayüzünü Kontrol Et" | lolcat
 echo -e ""
 echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}=========================== ${RED}Menu SSTP ${BLUE}===========================${NC}"
+echo -e "${BLUE}=========================== ${RED}L2TP Menüsü ${BLUE}===========================${NC}"
 echo -e ""
-echo -e "- add-sstp     : Create Account SSTP" | lolcat
-echo -e "- del-sstp     : Delete SSTP Account" | lolcat
-echo -e "- renew-sstp   : Extending SSTP Account Active Life" | lolcat
-echo -e "- cek-sstp     : Check User Login SSTP" | lolcat
-echo -e ""
-echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}=========================== ${RED}Menu SSR ${BLUE}============================${NC}"
-echo -e ""
-echo -e "- add-ssr      : Create SSR Account" | lolcat
-echo -e "- del-ssr      : Deleting SSR Account" | lolcat
-echo -e "- renew-ssr    : Extending SSR Account Active Life" | lolcat
-echo -e "- ssr          : Show Other SSR Menu" | lolcat
+echo -e "- add-l2tp     : L2TP Hesabı Oluştur" | lolcat
+echo -e "- del-l2tp     : L2TP Hesabını Sil" | lolcat
+echo -e "- renew-l2tp   : L2TP Hesabı Aktif Süresini Uzat" | lolcat
 echo -e ""
 echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}======================== ${RED}Shadowsocks OBFS ${BLUE}=======================${NC}"
+echo -e "${BLUE}=========================== ${RED}PPTP Menüsü ${BLUE}===========================${NC}"
 echo -e ""
-echo -e "- add-ss       : Creating Shadowsocks Account" | lolcat
-echo -e "- del-ss       : Delete Shadowsocks Account" | lolcat
-echo -e "- renew-ss     : Extending Shadowsocks Account Active Life" | lolcat
-echo -e "- cek-ss       : Check User Login Shadowsocks" | lolcat
-echo -e ""
-echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}=========================== ${RED}Menu VMESS ${BLUE}==========================${NC}"
-echo -e ""
-echo -e "- add-ws       : Create V2ray Vmess WS Account" | lolcat
-echo -e "- del-ws       : Deleting V2ray Vmess WS Account" | lolcat
-echo -e "- renew-ws     : Extending Vmess Account Active Life" | lolcat
-echo -e "- cek-ws       : Check User Login V2ray" | lolcat
-echo -e "- cert2vray    : Renew Certificate V2ray Account" | lolcat
+echo -e "- add-pptp     : PPTP Hesabı Oluştur" | lolcat
+echo -e "- del-pptp     : PPTP Hesabını Sil" | lolcat
+echo -e "- renew-pptp   : PPTP Hesabı Aktif Süresini Uzat" | lolcat
+echo -e "- cek-pptp     : PPTP Kullanıcı Girişini Kontrol Et" | lolcat
 echo -e ""
 echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}=========================== ${RED}Menu VLESS ${BLUE}==========================${NC}"
+echo -e "${BLUE}=========================== ${RED}SSTP Menüsü ${BLUE}===========================${NC}"
 echo -e ""
-echo -e "- add-vless    : Create V2ray Vless WS Account" | lolcat
-echo -e "- del-vless    : Deleting V2ray Vless WS Account" | lolcat
-echo -e "- renew-vless  : Extending Vless Account Active Life" | lolcat
-echo -e "- cek-vless    : Check User Login V2ray" | lolcat
-echo -e ""
-echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}========================== ${RED}Menu Trojan ${BLUE}==========================${NC}"
-echo -e ""
-echo -e "- add-tr       : Create Trojan Account" | lolcat
-echo -e "- del-tr       : Deleting Trojan Account" | lolcat
-echo -e "- renew-tr     : Extending Trojan Account Active Life" | lolcat
-echo -e "- cek-tr       : Check User Login Trojan" | lolcat
+echo -e "- add-sstp     : SSTP Hesabı Oluştur" | lolcat
+echo -e "- del-sstp     : SSTP Hesabını Sil" | lolcat
+echo -e "- renew-sstp   : SSTP Hesabı Aktif Süresini Uzat" | lolcat
+echo -e "- cek-sstp     : SSTP Kullanıcı Girişini Kontrol Et" | lolcat
 echo -e ""
 echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}========================== ${RED}Menu SYSTEM ${BLUE}==========================${NC}"
+echo -e "${BLUE}=========================== ${RED}SSR Menüsü ${BLUE}============================${NC}"
 echo -e ""
-echo -e "- auto-reboot  : Set Auto Reboot VPS" | lolcat
-echo -e "- change-port  : Change Port Of Some Service" | lolcat
-echo -e "- autobackup   : Autobackup Data VPS" | lolcat
-echo -e "- backup       : Backup Data VPS" | lolcat
-echo -e "- restore      : Restore Data VPS" | lolcat
-echo -e "- webmin       : Webmin Menu" | lolcat
-echo -e "- kernel-up    : Update To Latest Kernel" | lolcat
-echo -e "- vnstat       : Check Usage Bandwith Server" | lolcat
-echo -e "- speed-limiter: Limit Bandwith Speed Server" | lolcat
-echo -e "- ram          : Check Usage of VPS Ram" | lolcat
-echo -e "- reboot       : Reboot VPS" | lolcat
-echo -e "- speedtest    : Speedtest VPS" | lolcat
-echo -e "- update       : Update To Latest Script Version" | lolcat
-echo -e "- info         : Displaying System Information" | lolcat
-echo -e "- about        : Info Script Auto Install" | lolcat
-echo -e "- exit         : Exit From Terminal VPS " | lolcat
+echo -e "- add-ssr      : SSR Hesabı Oluştur" | lolcat
+echo -e "- del-ssr      : SSR Hesabını Sil" | lolcat
+echo -e "- renew-ssr    : SSR Hesabı Aktif Süresini Uzat" | lolcat
+echo -e "- ssr          : Diğer SSR Menüsünü Göster" | lolcat
 echo -e ""
 echo -e "${GREEN}=================================================================${NC}"
-echo -e "===================== ${RED}AutoScript By EvoTeamMalaysia${NC} ================="
+echo -e "${BLUE}======================== ${RED}Shadowsocks OBFS Menüsü ${BLUE}=======================${NC}"
+echo -e ""
+echo -e "- add-ss       : Shadowsocks Hesabı Oluştur" | lolcat
+echo -e "- del-ss       : Shadowsocks Hesabını Sil" | lolcat
+echo -e "- renew-ss     : Shadowsocks Hesabı Aktif Süresini Uzat" | lolcat
+echo -e "- cek-ss       : Shadowsocks Kullanıcı Girişini Kontrol Et" | lolcat
+echo -e ""
+echo -e "${GREEN}=================================================================${NC}"
+echo -e "${BLUE}=========================== ${RED}VMESS Menüsü ${BLUE}==========================${NC}"
+echo -e ""
+echo -e "- add-ws       : V2ray Vmess WS Hesabı Oluştur" | lolcat
+echo -e "- del-ws       : V2ray Vmess WS Hesabını Sil" | lolcat
+echo -e "- renew-ws     : Vmess Hesabı Aktif Süresini Uzat" | lolcat
+echo -e "- cek-ws       : V2ray Kullanıcı Girişini Kontrol Et" | lolcat
+echo -e "- cert2vray    : V2ray Hesabı Sertifikasını Yenile" | lolcat
+echo -e ""
+echo -e "${GREEN}=================================================================${NC}"
+echo -e "${BLUE}=========================== ${RED}VLESS Menüsü ${BLUE}==========================${NC}"
+echo -e ""
+echo -e "- add-vless    : V2ray Vless WS Hesabı Oluştur" | lolcat
+echo -e "- del-vless    : V2ray Vless WS Hesabını Sil" | lolcat
+echo -e "- renew-vless  : Vless Hesabı Aktif Süresini Uzat" | lolcat
+echo -e "- cek-vless    : V2ray Kullanıcı Girişini Kontrol Et" | lolcat
+echo -e ""
+echo -e "${GREEN}=================================================================${NC}"
+echo -e "${BLUE}========================== ${RED}Trojan Menüsü ${BLUE}==========================${NC}"
+echo -e ""
+echo -e "- add-tr       : Trojan Hesabı Oluştur" | lolcat
+echo -e "- del-tr       : Trojan Hesabını Sil" | lolcat
+echo -e "- renew-tr     : Trojan Hesabı Aktif Süresini Uzat" | lolcat
+echo -e "- cek-tr       : Trojan Kullanıcı Girişini Kontrol Et" | lolcat
+echo -e ""
+echo -e "${GREEN}=================================================================${NC}"
+echo -e "${BLUE}========================== ${RED}Sistem Menüsü ${BLUE}==========================${NC}"
+echo -e ""
+echo -e "- auto-reboot  : VPS için Otomatik Yeniden Başlatma Ayarla" | lolcat
+echo -e "- change-port  : Bazı Servislerin Portlarını Değiştir" | lolcat
+echo -e "- autobackup   : VPS Verilerini Otomatik Yedekle" | lolcat
+echo -e "- backup       : VPS Verilerini Yedekle" | lolcat
+echo -e "- restore      : VPS Verilerini Geri Yükle" | lolcat
+echo -e "- webmin       : Webmin Menüsü" | lolcat
+echo -e "- kernel-up    : En Son Kernel'e Güncelle" | lolcat
+echo -e "- vnstat       : Sunucu Bandwidth Kullanımını Kontrol Et" | lolcat
+echo -e "- speed-limiter: Sunucu Bandwidth Hızını Sınırla" | lolcat
+echo -e "- ram          : VPS RAM Kullanımını Kontrol Et" | lolcat
+echo -e "- reboot       : VPS'yi Yeniden Başlat" | lolcat
+echo -e "- speedtest    : VPS Hız Testi" | lolcat
+echo -e "- update       : En Son Script Sürümüne Güncelle" | lolcat
+echo -e "- info         : Sistem Bilgilerini Göster" | lolcat
+echo -e "- about        : Script Hakkında Bilgi" | lolcat
+echo -e "- exit         : VPS Terminal'den Çık" | lolcat
+echo -e ""
+echo -e "${GREEN}=================================================================${NC}"
+echo -e "===================== ${RED}Onvao.net Premium Vpn Kurulum Scripti${NC} ================="
 echo -e "${BLUE}=================================================================${NC}"
 echo -e ""
