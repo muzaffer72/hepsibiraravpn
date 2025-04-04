@@ -1,7 +1,7 @@
 #!/bin/bash
-#Open HTTP Puncher By EvoTeamMalaysia Project
+#onvao.net Projesi ile HTTP Puncher Aç
 #Direct Proxy Squid For OpenVPN TCP
-#Telegram: @EvoTeamMalaysia
+#Telegram: @onvaonet
 RED='\e[1;31m'
 GREEN='\e[0;32m'
 BLUE='\e[0;34m'
@@ -9,27 +9,27 @@ NC='\e[0m'
 MYIP=$(wget -qO- https://icanhazip.com);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 
-#Update Repository VPS
+#VPS Depolarını Güncelle
 clear
 apt update 
 apt-get -y upgrade
 
-#Port Server
-#Jika Ingiin Mengubah Port Silahkan Sesuaikan Dengan Port Yang Ada Di VPS Mu
+#Sunucu Portları
+#Portu Değiştirmek İstiyorsanız VPS'inizdeki Portla Uygun Olarak Ayarlayın
 Port_OpenVPN_TCP='1194';
 Port_Squid='3128';
 Port_OHP='8087';
 
-#Installing ohp Server
+#OHP Sunucusunu Yükle
 cd 
-wget -O /usr/local/bin/ohp "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/ohp"
+wget -O /usr/local/bin/ohp "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/ohp"
 chmod +x /usr/local/bin/ohp
 
-#Buat File OpenVPN TCP OHP
+#OpenVPN TCP OHP Dosyası Oluştur
 cat > /etc/openvpn/tcp-ohp.ovpn <<END
-############# WELCOME TO #############
-########## EvoTeamMalaysia VPN ############
-###### EvoTeamMalaysia OHP SERVER ########
+############# HOŞGELDİNİZ #############
+########## SHADOWSOCKS VPN / IKEV2 VPN ############
+###### ONVAONET OHP SERVER ########
 setenv CLIENT_CERT 0
 setenv opt block-outside-dns
 client
@@ -63,7 +63,7 @@ END
 
 sed -i $MYIP2 /etc/openvpn/tcp-ohp.ovpn;
 
-# masukkan certificatenya ke dalam config client TCP 1194
+#Certifikayı TCP 1194 istemci konfigürasyonuna ekle
 echo '<ca>' >> /etc/openvpn/tcp-ohp.ovpn
 cat /etc/openvpn/server/ca.crt >> /etc/openvpn/tcp-ohp.ovpn
 echo '</ca>' >> /etc/openvpn/tcp-ohp.ovpn
@@ -71,11 +71,11 @@ cp /etc/openvpn/tcp-ohp.ovpn /home/vps/public_html/tcp-ohp.ovpn
 clear
 cd 
 
-#Buat Service Untuk OHP
+#OHP için Servis Oluştur
 cat > /etc/systemd/system/ohp.service <<END
 [Unit]
-Description=Direct Squid Proxy For OpenVPN TCP By EvoTeamMalaysia
-Documentation=https://t.me/EvoTeamMalaysia
+Description=Direct Squid Proxy For OpenVPN TCP By ONVAONET
+Documentation=https://t.me/onvaonet
 Wants=network.target
 After=network.target
 
@@ -92,7 +92,7 @@ systemctl daemon-reload
 systemctl enable ohp
 systemctl restart ohp
 echo ""
-echo -e "${GREEN}Done Installing OHP Server${NC}"
+echo -e "${GREEN}OHP Sunucusu Başarıyla Kuruldu${NC}"
 echo -e "Port OVPN OHP TCP: $ohpp"
-echo -e "Link Download OVPN OHP: http://$MYIP:81/tcp-ohp.ovpn"
-echo -e "Script By EvoTeamMalaysia"
+echo -e "OVPN OHP İndirme Linki: http://$MYIP:81/tcp-ohp.ovpn"
+echo -e "Onvao.net Premium VPN Kurulum Scripti"
