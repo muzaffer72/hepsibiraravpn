@@ -3,9 +3,9 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- https://icanhazip.com);
-echo "Checking VPS"
+echo "VPS Kontrol Ediliyor"
 clear
-echo start
+echo başlatılıyor
 sleep 0.7
 source /var/lib/premium-script/ipvps.conf
 domain=$IP
@@ -15,6 +15,6 @@ systemctl stop v2ray@none
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 systemctl start v2ray
 systemctl start v2ray@none
-echo Done 
-echo The System will reboot in 5 seconds
+echo Tamamlandı
+echo Sistem 5 saniye içinde yeniden başlatılacak
 reboot
