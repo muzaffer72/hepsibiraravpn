@@ -37,7 +37,7 @@ dev tun
 ca ca.crt
 cert server.crt
 key server.key
-dh dh2048.pem
+dh dh.pem
 plugin /usr/lib/openvpn/openvpn-plugin-auth-pam.so login
 verify-client-cert none
 username-as-common-name
@@ -98,7 +98,7 @@ dev tun
 ca ca.crt
 cert server.crt
 key server.key
-dh dh2048.pem
+dh dh.pem
 plugin /usr/lib/openvpn/openvpn-plugin-auth-pam.so login
 verify-client-cert none
 username-as-common-name
