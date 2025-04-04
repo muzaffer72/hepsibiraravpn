@@ -3,11 +3,11 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- icanhazip.com);
-echo "Checking VPS"
+echo "VPS Kontrol Ediliyor"
  
 clear
                hariini=`date +%d-%m-%Y`
-               echo "Thank you for removing the EXPIRED USERS"
+               echo "SÜRESİ DOLMUŞ KULLANICILARI SİLDİĞİNİZ İÇİN TEŞEKKÜR EDERİZ"
                echo "--------------------------------------"
                cat /etc/shadow | cut -d: -f1,8 | sed /:$/d > /tmp/expirelist.txt
                totalaccounts=`cat /tmp/expirelist.txt | wc -l`
@@ -28,17 +28,17 @@ clear
                username=$username" " 
                done
                bulantahun=`echo $tglexp |awk -F" " '{print $2,$6}'`
-               echo "echo "Expired- User : $username Expire at : $tgl $bulantahun"" >> /usr/local/bin/alluser
+               echo "echo "Süresi Dolmuş- Kullanıcı : $username Süresi Bitti : $tgl $bulantahun"" >> /usr/local/bin/alluser
                todaystime=`date +%s`
                if [ $userexpireinseconds -ge $todaystime ] ;
                then
 		    	:
                else
-               echo "echo "Expired- Username : $username are expired at: $tgl $bulantahun and removed : $hariini "" >> /usr/local/bin/deleteduser
-	           echo "Username $username that are expired at $tgl $bulantahun removed from the VPS $hariini"
+               echo "echo "Süresi Dolmuş- Kullanıcı Adı : $username, $tgl $bulantahun tarihinde süresi dolmuş ve silindi : $hariini "" >> /usr/local/bin/deleteduser
+	           echo "Kullanıcı Adı $username, $tgl $bulantahun tarihinde süresi dolmuş ve $hariini tarihinde VPS'den silindi"
                userdel $username
                fi
                done
                echo " "
                echo "======================================"
-               echo "Script are successfully run"
+               echo "Script başarıyla çalıştırıldı"
