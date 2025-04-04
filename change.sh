@@ -3,23 +3,23 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- https://icanhazip.com);
-echo "Checking VPS"
+echo "VPS Kontrol Ediliyor"
 clear
 echo -e ""
 echo -e "======================================"
 echo -e ""
-echo -e "     [1]  Change Port Stunnel4"
-echo -e "     [2]  Change Port OpenVPN"
-echo -e "     [3]  Change Port Wireguard"
-echo -e "     [4]  Change Port Vmess"
-echo -e "     [5]  Change Port Vless"
-echo -e "     [6]  Change Port Trojan"
-echo -e "     [7]  Change Port Squid"
-echo -e "     [8]  Change Port SSTP"
-echo -e "     [x]  Exit"
+echo -e "     [1]  Stunnel4 Portunu Değiştir"
+echo -e "     [2]  OpenVPN Portunu Değiştir"
+echo -e "     [3]  Wireguard Portunu Değiştir"
+echo -e "     [4]  Vmess Portunu Değiştir"
+echo -e "     [5]  Vless Portunu Değiştir"
+echo -e "     [6]  Trojan Portunu Değiştir"
+echo -e "     [7]  Squid Portunu Değiştir"
+echo -e "     [8]  SSTP Portunu Değiştir"
+echo -e "     [x]  Çıkış"
 echo -e "======================================"
 echo -e ""
-read -p "     Select From Options [1-8 or x] :  " port
+read -p "     Seçeneklerden birini seçin [1-8 veya x] :  " port
 echo -e ""
 case $port in
 1)
@@ -51,6 +51,6 @@ clear
 menu
 ;;
 *)
-echo "Please enter an correct number"
+echo "Lütfen doğru bir numara girin"
 ;;
 esac
