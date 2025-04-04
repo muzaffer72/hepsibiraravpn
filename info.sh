@@ -2,4 +2,4 @@
 
 clear
 neofetch
-echo "Script By EvoTeamMalaysia"
+echo "Detaylı bilgi için lütfen onvao.net sitesiyle iletişime geçin."
