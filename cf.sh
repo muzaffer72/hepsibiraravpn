@@ -3,17 +3,17 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- https://icanhazip.com);
-echo "Checking VPS"
+echo "VPS Kontrol Ediliyor"
 apt install jq curl -y
-DOMAIN=mrtunnelvpn.store
+DOMAIN=onvao.net
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-SUB_DOMAIN=${sub}.mrtunnelvpn.store
-WILDCARD=*.${sub}.mrtunnelvpn.store
-CF_ID=mrupco2024@gmail.com
-CF_KEY=9e084868b0244eaf8ab508ddb525b5a82b2ac
+SUB_DOMAIN=${sub}.onvao.net
+WILDCARD=*.${sub}.onvao.net
+CF_ID=guzelim.batmanli@gmail.com
+CF_KEY=4aa140cf85fde3adadad1856bdf67cf5ad460
 set -euo pipefail
 IP=$(wget -qO- https://icanhazip.com);
-echo "Updating DNS for ${SUB_DOMAIN}..."
+echo "${SUB_DOMAIN} için DNS güncelleniyor..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}&status=active" \
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
@@ -40,7 +40,7 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 echo "Host : $SUB_DOMAIN"
 echo $SUB_DOMAIN > /root/domain
 sleep 5
-echo "Updating DNS for ${WILDCARD}..."
+echo "${WILDCARD} için DNS güncelleniyor..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}&status=active" \
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
