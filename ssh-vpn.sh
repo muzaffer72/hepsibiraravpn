@@ -123,8 +123,8 @@ echo "/usr/sbin/nologin" >> /etc/shells
 
 # install squid
 cd
-apt -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/squid3.conf"
+apt -y install squid
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/squid.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # setting vnstat
