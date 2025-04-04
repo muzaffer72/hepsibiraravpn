@@ -1,18 +1,20 @@
-# AutoScriptVPS
+# onvao.net Hepsibiraradavpn
 
+## DEBIAN VE UBUNTU İÇİN GÜNCELLEME
+Eğer Debian 9→12 veya Ubuntu 18→22 işletim sistemini kullanıyorsanız, aşağıdaki komutu çalıştırın:
 
-## UPGRADE FOR DEBIAN AND UBUNTU
-Enter the command below if you are using OS Debian Version 9→12 or OS Ubuntu Version 18→22
 ```
 apt update && apt upgrade -y && update-grub && sleep 2 && reboot
 ```
 
-## INSTALL SCRIPT 
-Enter the command below to install Ovpn Script by 𓆩 mrtunnel 𓆪
+## SCRIPT KURULUMU
+Aşağıdaki komutu çalıştırarak Ե mrtunnel Զ tarafından hazırlanan Ovpn Script'ini yükleyebilirsiniz:
+
 ```
-apt install -y && apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/install.sh; bash install.sh
+apt install -y && apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/refs/heads/main/install.sh; bash install.sh
 ```
 
-## TESTED ON OS
-- UBUNTU Version 18 Atau 22 (Recommended)
-- DEBIAN Version 09 Atau 12
+## TEST EDİLEN İŞLETİM SİSTEMLERİ
+- **UBUNTU** Sürüm 18 veya 22 (Önerilen)
+- **DEBIAN** Sürüm 9 veya 12
+
