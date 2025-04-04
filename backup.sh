@@ -3,17 +3,17 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- https://icanhazip.com);
-echo "Checking VPS"
+echo "VPS Kontrol Ediliyor"
 IP=$(wget -qO- https://icanhazip.com);
 date=$(date +"%Y-%m-%d")
 clear
-echo " Enter Your Email To Receive Backup Message"
-read -rp " Email: " -e email
+echo "Yedekleme Mesajını Almak İçin E-posta Adresinizi Girin"
+read -rp "E-posta: " -e email
 sleep 1
-echo Membuat Directory
+echo "Dizin Oluşturuluyor"
 mkdir /root/backup
 sleep 1
-echo Start Backup
+echo "Yedekleme Başlatılıyor"
 clear
 cp /etc/passwd backup/
 cp /etc/group backup/
@@ -35,19 +35,19 @@ rclone copy /root/$IP-$date.zip dr:backup/
 url=$(rclone link dr:backup/$IP-$date.zip)
 id=(`echo $url | grep '^https' | cut -d'=' -f2`)
 link="https://drive.google.com/u/4/uc?id=${id}&export=download"
-echo -e "SUCCESSFULL BACKUP YOUR VPS
+echo -e "VPS Yedeklemeniz BAŞARILI
 
-Please Save The Following Data
+Lütfen Aşağıdaki Verileri Saklayın
 ============================================
-Your VPS IP : $IP
-Link Backup : $link
+VPS IP'niz : $IP
+Yedekleme Linki : $link
 ============================================
-Please enter the link above If you want to restore data
+Veri geri yüklemek isterseniz yukarıdaki bağlantıyı kullanın
 
-© Copyright 2021 By EvoTeamMalaysia" | mail -s "Backup Data" $email
+© Copyright 2025 By onvao.net" | mail -s "Yedekleme Verisi" $email
 rm -rf /root/backup
 rm -r /root/$IP-$date.zip
 echo ""
-figlet -c DONE | lolcat
-echo "Please Check Your Email"
+figlet -c BİTTİ | lolcat
+echo "Lütfen E-posta'nızı Kontrol Edin"
 echo ""
