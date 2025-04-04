@@ -3,24 +3,24 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- https://icanhazip.com);
-echo "Checking VPS"
+echo "VPS Kontrol Ediliyor"
 
 clear
 echo -e ""
 echo -e "======================================"
 echo -e ""
 echo -e ""
-echo -e "    [1] Restart All Services"
-echo -e "    [2] Restart OpenSSH"
-echo -e "    [3] Restart Dropbear"
-echo -e "    [4] Restart Stunnel4"
-echo -e "    [5] Restart OpenVPN"
-echo -e "    [6] Restart Squid"
-echo -e "    [7] Restart Nginx"
-echo -e "    [8] Restart Badvpn"
-echo -e "    [x] Exit"
+echo -e "    [1] Tüm Servisleri Yeniden Başlat"
+echo -e "    [2] OpenSSH'yi Yeniden Başlat"
+echo -e "    [3] Dropbear'ı Yeniden Başlat"
+echo -e "    [4] Stunnel4'ü Yeniden Başlat"
+echo -e "    [5] OpenVPN'i Yeniden Başlat"
+echo -e "    [6] Squid'i Yeniden Başlat"
+echo -e "    [7] Nginx'i Yeniden Başlat"
+echo -e "    [8] Badvpn'i Yeniden Başlat"
+echo -e "    [x] Çıkış"
 echo -e ""
-read -p "    Select From Options [1-8 or x] :  " Restart
+read -p "    Seçeneklerden birini seçin [1-8 veya x] :  " Restart
 echo -e ""
 echo -e "======================================"
 sleep 1
@@ -42,7 +42,7 @@ case $Restart in
                 echo -e ""
                 echo -e "======================================"
                 echo -e ""
-                echo -e "          Service/s Restarted         "
+                echo -e "          Servis(ler) Yeniden Başlatıldı"
                 echo -e ""
                 echo -e "======================================"
                 exit
@@ -53,7 +53,7 @@ case $Restart in
                 echo -e ""
                 echo -e "======================================"
                 echo -e ""
-                echo -e "         SSH Service Restarted        "
+                echo -e "         SSH Servisi Yeniden Başlatıldı"
                 echo -e ""
                 echo -e "======================================"
                 exit
@@ -64,7 +64,7 @@ case $Restart in
                 echo -e ""
                 echo -e "======================================"
                 echo -e ""
-                echo -e "       Dropbear Service Restarted     "
+                echo -e "       Dropbear Servisi Yeniden Başlatıldı"
                 echo -e ""
                 echo -e "======================================"
                 exit
@@ -75,7 +75,7 @@ case $Restart in
                 echo -e ""
                 echo -e "======================================"
                 echo -e ""
-                echo -e "        Stunnel4 Service Restarted    "
+                echo -e "        Stunnel4 Servisi Yeniden Başlatıldı"
                 echo -e ""
                 echo -e "======================================"
                 exit
@@ -86,7 +86,7 @@ case $Restart in
                 echo -e ""
                 echo -e "======================================"
                 echo -e ""
-                echo -e "       OpenVPN Service Restarted      "
+                echo -e "       OpenVPN Servisi Yeniden Başlatıldı"
                 echo -e ""
                 echo -e "======================================"
                 exit
@@ -97,7 +97,7 @@ case $Restart in
                 echo -e ""
                 echo -e "======================================"
                 echo -e ""
-                echo -e "        Squid3 Service Restarted      "
+                echo -e "        Squid3 Servisi Yeniden Başlatıldı"
                 echo -e ""
                 echo -e "======================================"
                 exit
@@ -108,7 +108,7 @@ case $Restart in
                 echo -e ""
                 echo -e "======================================"
                 echo -e ""
-                echo -e "         Nginx Service Restarted      "
+                echo -e "         Nginx Servisi Yeniden Başlatıldı"
                 echo -e ""
                 echo -e "======================================"
                 exit
@@ -127,7 +127,7 @@ case $Restart in
                 echo -e ""
                 echo -e "======================================"
                 echo -e ""
-                echo -e "    Badvpn  Badvpn Service Restarted  "
+                echo -e "    Badvpn Servisi Yeniden Başlatıldı"
                 echo -e ""
                 echo -e "======================================"
                 exit
