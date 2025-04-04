@@ -14,7 +14,7 @@ echo ""
 echo "Lütfen Cloudflare üzerinde yönlendirdiğiniz domaininizi girin"
 read -rp "Domain/Host: " -e host
 echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
-rm -f /home/homain
+rm -f /home/domain
 echo "$host" > /home/domain
 echo -e "[${GREEN}Tamamlandı${NC}]"
 
