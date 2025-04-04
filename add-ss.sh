@@ -3,7 +3,7 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- https://icanhazip.com);
-echo "Checking VPS"
+echo "VPS Kontrol Ediliyor"
 clear
 IP=$(wget -qO- https://icanhazip.com);
 lastport1=$(grep "port_tls" /etc/shadowsocks-libev/akun.conf | tail -n1 | awk '{print $2}')
@@ -19,19 +19,19 @@ else
 http="$((lastport2+1))"
 fi
 echo ""
-echo "Enter Password"
+echo "Şifreyi Girin"
 
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-		read -rp "Password: " -e user
+		read -rp "Şifre: " -e user
 		CLIENT_EXISTS=$(grep -w $user /etc/shadowsocks-libev/akun.conf | wc -l)
 
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 			echo ""
-			echo "A Client Username Was Already Created, Please Enter New Username"
+			echo "Bu Kullanıcı Adı Zaten Oluşturulmuş, Lütfen Yeni Bir Kullanıcı Adı Girin"
 			exit 1
 		fi
 	done
-read -p "Expired (hari): " masaaktif
+read -p "Süresi (gün): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 cat > /etc/shadowsocks-libev/$user-tls.json<<END
 {   
@@ -82,18 +82,18 @@ clear
 
 echo -e ""
 echo -e "==============================="
-echo -e "Shadowsocks Information Account"
+echo -e "Shadowsocks Hesap Bilgileri"
 echo -e "==============================="
 echo -e "IP/Host        : $IP"
 echo -e "Port OBFS TLS  : $tls"
 echo -e "Port OBFS HTTP : $http"
-echo -e "Password       : $user"
-echo -e "Method         : aes-256-cfb"
-echo -e "Expired On     : $exp"
+echo -e "Şifre          : $user"
+echo -e "Yöntem         : aes-256-cfb"
+echo -e "Son Kullanım   : $exp"
 echo -e "==============================="
 echo -e "Link OBFS TLS  : $linkss1"
 echo -e ""
 echo -e "Link OBFS HTTP : $linkss2"
 echo -e "==============================="
-echo -e "Create By EvoTeamMalaysia"
+echo -e "Onvao.net Premium vpn kurulum scripti"
 echo -e ""
