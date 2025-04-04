@@ -12,16 +12,15 @@ source /etc/os-release
 ver=$VERSION_ID
 
 #detail nama perusahaan
-country=MY
-state=Malaysia
-locality=Malaysia
-organization=www.evoteammalaysia.com
-organizationalunit=www.evoteammalaysia.com
-commonname=EvoTeamMalaysia
-email=admin@EvoTeamMalaysia.com
-
+country=TR
+state=Batman
+locality=Turkey
+organization=www.onvao.net
+organizationalunit=www.onvao.net
+commonname=DuaveSena
+email=mail@onvao.net
 # simple password minimal
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/password"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -88,14 +87,14 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/nginx.conf"
 mkdir -p /home/vps/public_html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/vps.conf"
 /etc/init.d/nginx restart
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -125,7 +124,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 # install squid
 cd
 apt -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/squid3.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # setting vnstat
@@ -179,76 +178,76 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 /etc/init.d/stunnel4 restart
 
 #OpenVPN
-wget https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScript/main/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
+wget https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
 # install fail2ban
 apt -y install fail2ban
 
 # Instal DDOS Flate
 if [ -d '/usr/local/ddos' ]; then
-	echo; echo; echo "Please un-install the previous version first"
+	echo; echo; echo "Lütfen önce önceki sürümü kaldırın"
 	exit 0
 else
 	mkdir /usr/local/ddos
 fi
 clear
 echo; echo 'Installing DOS-Deflate 0.6'; echo
-echo; echo -n 'Downloading source files...'
-wget -q -O /usr/local/ddos/ddos.conf http://www.inetbase.com/scripts/ddos/ddos.conf
+echo; echo -n 'Kaynak Dosyaları indirliyor...'
+wget -q -O /usr/local/ddos/ddos.conf https://raw.githubusercontent.com/ilyaevseev/antiddos-script/refs/heads/master/ddos.conf
 echo -n '.'
-wget -q -O /usr/local/ddos/LICENSE http://www.inetbase.com/scripts/ddos/LICENSE
+wget -q -O /usr/local/ddos/LICENSE https://raw.githubusercontent.com/ilyaevseev/antiddos-script/refs/heads/master/LICENSE
 echo -n '.'
-wget -q -O /usr/local/ddos/ignore.ip.list http://www.inetbase.com/scripts/ddos/ignore.ip.list
+wget -q -O /usr/local/ddos/ignore.ip.list https://raw.githubusercontent.com/ilyaevseev/antiddos-script/refs/heads/master/ignore.ip.list
 echo -n '.'
-wget -q -O /usr/local/ddos/ddos.sh http://www.inetbase.com/scripts/ddos/ddos.sh
+wget -q -O /usr/local/ddos/ddos.sh https://raw.githubusercontent.com/ilyaevseev/antiddos-script/refs/heads/master/ddos.sh
 chmod 0755 /usr/local/ddos/ddos.sh
 cp -s /usr/local/ddos/ddos.sh /usr/local/sbin/ddos
-echo '...done'
-echo; echo -n 'Creating cron to run script every minute.....(Default setting)'
+echo '...bitti'
+echo; echo -n 'Her dakika betiği çalıştırmak için cron oluşturuluyor.....(Default setting)'
 /usr/local/ddos/ddos.sh --cron > /dev/null 2>&1
-echo '.....done'
-echo; echo 'Installation has completed.'
-echo 'Config file is at /usr/local/ddos/ddos.conf'
-echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
+echo '.....bitti'
+echo; echo 'Kurulum tamamlandı.'
+echo 'Yapılandırma dosyası /usr/local/ddos/ddos.conf konumundadır'
+echo 'Lütfen yorumlarınızı ve/veya önerilerinizi t.me/onvaonet adresine gönderin.'
 
 # banner /etc/issue.net
-wget -O /etc/issue.net "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/banner.conf"
+wget -O /etc/issue.net "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/banner.conf"
 echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # download script
 cd /usr/bin
-wget -O add-host "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/add-host.sh"
-wget -O about "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/about.sh"
-wget -O menu "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/menu.sh"
-wget -O add-ssh "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/add-ssh.sh"
-wget -O trial-ssh "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/trial-ssh.sh"
-wget -O del-ssh "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/del-ssh.sh"
-wget -O list-ssh "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/list-ssh.sh"
-wget -O delete "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/delete.sh"
-wget -O cek-ssh "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/cek-ssh.sh"
-wget -O restart "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/speedtest_cli.py"
-wget -O info "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/info.sh"
-wget -O ram "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/ram.sh"
-wget -O renew-ssh "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/renew-ssh.sh"
-wget -O autokill "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/autokill.sh"
-wget -O mulog "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/mulog.sh"
-wget -O tendang "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/tendang.sh"
-wget -O change-port "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/change.sh"
-wget -O port-ovpn "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-ovpn.sh"
-wget -O port-ssl "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-ssl.sh"
-wget -O port-wg "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-wg.sh"
-wget -O port-tr "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-tr.sh"
-wget -O port-sstp "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-sstp.sh"
-wget -O port-squid "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-squid.sh"
-wget -O port-ws "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-ws.sh"
-wget -O port-vless "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/port-vless.sh"
-wget -O webmin "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/webmin.sh"
-wget -O xp "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/xp.sh"
-wget -O kernel-up "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/kernel.sh"
-wget -O update "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/update-1.2.sh"
-wget -O auto-reboot "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/reboot.sh"
+wget -O add-host "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/add-host.sh"
+wget -O about "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/about.sh"
+wget -O menu "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/menu.sh"
+wget -O add-ssh "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/add-ssh.sh"
+wget -O trial-ssh "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/trial-ssh.sh"
+wget -O del-ssh "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/del-ssh.sh"
+wget -O list-ssh "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/list-ssh.sh"
+wget -O delete "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/delete.sh"
+wget -O cek-ssh "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/cek-ssh.sh"
+wget -O restart "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/restart.sh"
+wget -O speedtest "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/speedtest_cli.py"
+wget -O info "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/info.sh"
+wget -O ram "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/ram.sh"
+wget -O renew-ssh "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/renew-ssh.sh"
+wget -O autokill "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/autokill.sh"
+wget -O mulog "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/mulog.sh"
+wget -O tendang "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/tendang.sh"
+wget -O change-port "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/change.sh"
+wget -O port-ovpn "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/port-ovpn.sh"
+wget -O port-ssl "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/port-ssl.sh"
+wget -O port-wg "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/port-wg.sh"
+wget -O port-tr "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/port-tr.sh"
+wget -O port-sstp "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/port-sstp.sh"
+wget -O port-squid "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/port-squid.sh"
+wget -O port-ws "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/port-ws.sh"
+wget -O port-vless "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/port-vless.sh"
+wget -O webmin "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/webmin.sh"
+wget -O xp "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/xp.sh"
+wget -O kernel-up "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/kernel.sh"
+wget -O update "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/update-1.2.sh"
+wget -O auto-reboot "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/reboot.sh"
 chmod +x add-host
 chmod +x menu
 chmod +x add-ssh
