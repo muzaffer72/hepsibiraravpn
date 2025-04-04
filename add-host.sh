@@ -4,24 +4,24 @@ GREEN='\e[0;32m'
 BLUE='\e[0;34m'
 NC='\e[0m'
 
-#Input Domain
+# Domain Girişi
 clear
 echo ""
 echo -e "${BLUE}==========================================================${NC}"
-figlet Add Domain | lolcat
+figlet Domain Ekle | lolcat
 echo -e "${BLUE}==========================================================${NC}"
 echo ""
-echo "Please Input Your Pointing Domain In Cloudflare "
+echo "Lütfen Cloudflare üzerinde yönlendirdiğiniz domaininizi girin"
 read -rp "Domain/Host: " -e host
 echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
 rm -f /home/homain
 echo "$host" > /home/domain
-echo -e "[${GREEN}Done${NC}]"
+echo -e "[${GREEN}Tamamlandı${NC}]"
 
-#Update Sertificate SSL
-echo "Automatical Update Your Sertificate SSL"
+# SSL Sertifikası Güncellemesi
+echo "Sertifikanız otomatik olarak güncelleniyor"
 sleep 3
-echo Starting Update SSL Sertificate
+echo "SSL Sertifikası Güncelleniyor"
 sleep 0.5
 source /var/lib/premium-script/ipvps.conf
 domain=$IP
@@ -32,8 +32,8 @@ systemctl stop v2ray@none
 systemctl start v2ray
 systemctl start v2ray@none
 
-#Done
-echo -e "[${GREEN}Done${NC}]"
-echo "Location Your Domain : /home/domain"
+# İşlem Tamamlandı
+echo -e "[${GREEN}Tamamlandı${NC}]"
+echo "Domaininizin Konumu : /home/domain"
 echo ""
-echo -e "${RED}Autoscript By EvoTeamMalaysia${NC}"
+echo -e "${RED}Onvao.net Premium VPN Kurulum scripti${NC}"
