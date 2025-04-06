@@ -13,7 +13,7 @@ echo -e ""
 echo -e "    [1] Tüm Servisleri Yeniden Başlat"
 echo -e "    [2] OpenSSH'yi Yeniden Başlat"
 echo -e "    [3] Dropbear'ı Yeniden Başlat"
-echo -e "    [4] Stunnel'ü Yeniden Başlat"
+echo -e "    [4] Stunnel4'ü Yeniden Başlat"
 echo -e "    [5] OpenVPN'i Yeniden Başlat"
 echo -e "    [6] Squid'i Yeniden Başlat"
 echo -e "    [7] Nginx'i Yeniden Başlat"
@@ -30,7 +30,7 @@ case $Restart in
                 clear
                 /etc/init.d/ssh restart
                 /etc/init.d/dropbear restart
-                /etc/init.d/stunnel restart
+                /etc/init.d/stunnel4 restart
                 /etc/init.d/openvpn restart
                 /etc/init.d/fail2ban restart
                 /etc/init.d/cron restart
@@ -71,11 +71,11 @@ case $Restart in
                 ;;
                 4)
                 clear
-                /etc/init.d/stunnel restart
+                /etc/init.d/stunnel4 restart
                 echo -e ""
                 echo -e "======================================"
                 echo -e ""
-                echo -e "        StunnelServisi Yeniden Başlatıldı"
+                echo -e "        Stunnel4 Servisi Yeniden Başlatıldı"
                 echo -e ""
                 echo -e "======================================"
                 exit

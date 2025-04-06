@@ -491,19 +491,19 @@ systemctl enable trojan
 systemctl restart v2ray
 systemctl enable v2ray
 cd /usr/bin
-wget -O add-ws "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/add-ws.sh"
-wget -O add-vless "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/add-vless.sh"
-wget -O add-tr "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/add-tr.sh"
-wget -O del-ws "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/del-ws.sh"
-wget -O del-vless "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/del-vless.sh"
-wget -O del-tr "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/del-tr.sh"
-wget -O cek-ws "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/cek-ws.sh"
-wget -O cek-vless "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/cek-vless.sh"
-wget -O cek-tr "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/cek-tr.sh"
-wget -O renew-ws "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/renew-ws.sh"
-wget -O renew-vless "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/renew-vless.sh"
-wget -O renew-tr "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/renew-tr.sh"
-wget -O certv2ray "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/certv2ray.sh"
+wget -O add-ws "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/add-ws.sh"
+wget -O add-vless "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/add-vless.sh"
+wget -O add-tr "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/add-tr.sh"
+wget -O del-ws "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/del-ws.sh"
+wget -O del-vless "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/del-vless.sh"
+wget -O del-tr "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/del-tr.sh"
+wget -O cek-ws "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/cek-ws.sh"
+wget -O cek-vless "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/cek-vless.sh"
+wget -O cek-tr "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/cek-tr.sh"
+wget -O renew-ws "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/renew-ws.sh"
+wget -O renew-vless "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/renew-vless.sh"
+wget -O renew-tr "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/renew-tr.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/certv2ray.sh"
 chmod +x add-ws
 chmod +x add-vless
 chmod +x add-tr
