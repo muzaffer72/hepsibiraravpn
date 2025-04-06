@@ -16,7 +16,8 @@ based="\e[39m"
 danger="\e[91m"
 warning="\e[93m"
 success="\e[92m"
-
+wget https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/cf.sh && chmod +x cf.sh && bash cf.sh
+echo "Alan adı cloudflareye gönderildi kuruluma başlamak için şifrenizi girin"
 echo -e "\n[${warning}Permission$based] > Şifreyi Girin :"
 read -r -s Password
 case "$Password" in
@@ -36,7 +37,7 @@ exit 0
 fi
 mkdir /var/lib/premium-script;
 echo "IP=" >> /var/lib/premium-script/ipvps.conf
-wget https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/cf.sh && chmod +x cf.sh && bash cf.sh
+
 #install ssh ovpn
 wget https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #sstp
