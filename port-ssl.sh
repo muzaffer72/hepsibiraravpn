@@ -19,7 +19,7 @@ read -p "     Select From Options [1-2 or x] :  " prot
 echo -e ""
 case $prot in
 1)
-read -p "New Port Stunnel4: " stl
+read -p "New Port Stunnel: " stl
 if [ -z $stl ]; then
 echo "Please Input Port"
 exit 0
@@ -27,15 +27,15 @@ fi
 cek=$(netstat -nutlp | grep -w $stl)
 if [[ -z $cek ]]; then
 sed -i "s/$ssl/$stl/g" /etc/stunnel/stunnel.conf
-sed -i "s/   - Stunnel4                : $ssl, $ssl2/   - Stunnel4                : $stl, $ssl2/g" /root/log-install.txt
-/etc/init.d/stunnel4 restart > /dev/null
+sed -i "s/   - Stunnel               : $ssl, $ssl2/   - Stunnel               : $stl, $ssl2/g" /root/log-install.txt
+/etc/init.d/stunnel restart > /dev/null
 echo -e "\e[032;1mPort $stl modified successfully\e[0m"
 else
 echo "Port $stl is used"
 fi
 ;;
 2)
-read -p "New Port Stunnel4: " stl
+read -p "New Port Stunnel: " stl
 if [ -z $stl ]; then
 echo "Please Input Port"
 exit 0
@@ -43,8 +43,8 @@ fi
 cek=$(netstat -nutlp | grep -w $stl)
 if [[ -z $cek ]]; then
 sed -i "s/$ssl2/$stl/g" /etc/stunnel/stunnel.conf
-sed -i "s/   - Stunnel4                : $ssl, $ssl2/   - Stunnel4                : $ssl, $stl/g" /root/log-install.txt
-/etc/init.d/stunnel4 restart > /dev/null
+sed -i "s/   - Stunnel               : $ssl, $ssl2/   - Stunnel               : $ssl, $stl/g" /root/log-install.txt
+/etc/init.d/stunnel restart > /dev/null
 echo -e "\e[032;1mPort $stl modified successfully\e[0m"
 else
 echo "Port $stl is used"

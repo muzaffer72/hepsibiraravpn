@@ -8,7 +8,7 @@ clear
 echo -e ""
 echo -e "======================================"
 echo -e ""
-echo -e "     [1]  Stunnel4 Portunu Değiştir"
+echo -e "     [1]  StunnelPortunu Değiştir"
 echo -e "     [2]  OpenVPN Portunu Değiştir"
 echo -e "     [3]  Wireguard Portunu Değiştir"
 echo -e "     [4]  Vmess Portunu Değiştir"
