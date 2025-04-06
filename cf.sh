@@ -66,3 +66,4 @@ RESULT=$(curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_
 echo "Host : $WILDCARD"
 echo $WILDCARD > /home/wildcard
 rm -f /root/cf.sh
+
