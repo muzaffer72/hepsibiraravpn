@@ -8,7 +8,7 @@ apt update && apt upgrade -y && update-grub && sleep 2 && reboot
 ```
 
 ## SCRIPT KURULUMU
-Aşağıdaki komutu çalıştırarak Ե mrtunnel Զ tarafından hazırlanan Ovpn Script'ini yükleyebilirsiniz:
+Aşağıdaki komutu çalıştırarak Ե onvao.net Զ tarafından hazırlanan Ovpn Script'ini yükleyebilirsiniz:
 
 ```
 apt install -y && apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/refs/heads/main/install.sh; bash install.sh

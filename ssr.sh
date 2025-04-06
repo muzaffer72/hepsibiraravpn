@@ -122,7 +122,7 @@ if [[ ${OS} == "centos" ]]; then
 }
 Start_SSR(){
 	check_pid
-	wget -O /etc/init.d/ssrmu "https://raw.githubusercontent.com/EvoTeamMalaysia/AutoScriptVPS/main/ssrmu"
+	wget -O /etc/init.d/ssrmu "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/ssrmu"
 	/etc/init.d/ssrmu start
 }
 Install_SSR(){

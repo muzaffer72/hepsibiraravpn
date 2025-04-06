@@ -22,13 +22,13 @@ mkdir /home/sstp
 touch /home/sstp/sstp_account
 touch /var/lib/premium-script/data-user-sstp
 #detail nama perusahaan
-country=MY
-state=Malaysia
-locality=Malaysia
-organization=www.evoteammalaysia.com
-organizationalunit=www.evoteammalaysia.com
-commonname=EvoTeamMalaysia
-email=admin@EvoTeamMalaysia.com
+country=TR
+state=Turkey
+locality=Turkey
+organization=www.onvao.net
+organizationalunit=www.onvao.net
+commonname=onvao.net
+email=guzelim.batmanli@gmail.com
 
 #install sstp
 apt-get install -y build-essential cmake gcc linux-headers-`uname -r` git libpcre3-dev libssl-dev liblua5.1-0-dev ppp
@@ -40,7 +40,7 @@ make
 cpack -G DEB
 dpkg -i accel-ppp.deb
 mv /etc/accel-ppp.conf.dist /etc/accel-ppp.conf
-wget -O /etc/accel-ppp.conf "https://raw.githubusercontent.com/mrtunneldo2024/mrtun/main/accel.conf"
+wget -O /etc/accel-ppp.conf "https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/main/accel.conf"
 sed -i $MYIP2 /etc/accel-ppp.conf
 chmod +x /etc/accel-ppp.conf
 systemctl start accel-ppp

@@ -1,6 +1,6 @@
 #!/bin/bash
 #Script Auto Reboot Vps
-#Creted By EvoTeamMalaysia
+#Creted By onvao.net
 RED='\e[1;31m'
 GREEN='\e[0;32m'
 BLUE='\e[0;34m'

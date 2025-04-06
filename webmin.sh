@@ -54,7 +54,7 @@ apt autoremove --purge webmin -y > /dev/null 2>&1
 clear
 echo ""
 echo "Webmin Kaldırma Tamamlandı"
-echo "AutoScriptVPS By EvoTeamMalaysia"
+echo "AutoScriptVPS By onvao.net"
 }
 
 if [[ "$cek" = "perl" ]]; then

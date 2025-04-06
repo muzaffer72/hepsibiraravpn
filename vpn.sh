@@ -60,7 +60,7 @@ sed -i $MYIP2 /etc/openvpn/client-tcp-1194.ovpn;
 # Buat config client UDP 2200
 cat > /etc/openvpn/client-udp-2200.ovpn <<-END
 ########## SELAMAT DATANG ###########
-########## EvoTeamMalaysia ##########
+########## onvao.net ##########
 client
 dev tun
 proto udp

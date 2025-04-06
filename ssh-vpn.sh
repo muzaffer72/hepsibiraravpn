@@ -1,5 +1,5 @@
 #!/bin/bash
-# By EvoTeamMalaysia
+# By onvao.net
 #
 # ==================================================
 

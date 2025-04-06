@@ -2,7 +2,7 @@
 # Debian 9 & 10 64bit
 # Ubuntu 18.04 & 20.04 & 22.10 64bit
 # Centos 7 & 8 64bit (Patialy Supported)
-# By EvoTeamMalaysia
+# By onvao.net
 # ==================================================
 
 
@@ -23,7 +23,7 @@ if [[ -e /etc/wireguard/params ]]; then
 	exit 1
 fi
 
-echo -e "${Info} Wireguard VPS AutoScript by EvoTeamMalaysia"
+echo -e "${Info} Wireguard VPS AutoScript by onvao.net"
 # Detect public IPv4 address and pre-fill for the user
 
 # Detect public interface and pre-fill for the user	

@@ -1,5 +1,5 @@
 #!/bin/bash
-#shadowsocks-libev obfs install by EvoTeamMalaysia
+#shadowsocks-libev obfs install by onvao.net
 source /etc/os-release
 OS=$ID
 ver=$VERSION_ID

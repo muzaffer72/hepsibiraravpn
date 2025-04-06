@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script by : EvoTeamMalaysia
+# Script by : onvao.net
 #!/bin/bash
 clear
 MAX=1
