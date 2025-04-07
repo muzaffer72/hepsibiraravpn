@@ -93,7 +93,7 @@ history -c
 echo "1.2" > /home/ver
 clear
 echo " "
-sudo hostnamectl set-hostname aio.onvao.net
+sudo hostnamectl set-hostname $(grep -oP '\*\.\K\S+' /home/wildcard | head -n1)
 figlet -c Kurulum Başarılı | lolcat
 echo " "
 echo "--------------------------------------------------------------------------------" | tee -a log-install.txt
@@ -125,7 +125,7 @@ echo "--------------------------------------------------------------------------
 echo ""  | tee -a log-install.txt
 echo "   >>> Sunucu Bilgileri ve Diğer Özellikler"  | tee -a log-install.txt
 echo "   - Saat Dilimi                : Europa/Istanbul(GMT +3)"  | tee -a log-install.txt
-echo "   - hostname               : aio.onvao.net"  | tee -a log-install.txt
+echo "   - hostname               : $(grep -oP '\*\.\K\S+' /home/wildcard | head -n1)" | tee -a log-install.txt
 echo "   - Fail2Ban                : [ON]"  | tee -a log-install.txt
 echo "   - Dflate                  : [ON]"  | tee -a log-install.txt
 echo "   - IPtables                : [ON]"  | tee -a log-install.txt
