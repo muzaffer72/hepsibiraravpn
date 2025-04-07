@@ -66,7 +66,7 @@ yum install -y python2
 alternatives --set python /usr/bin/python2
 fi
 else
-apt-get install -y python
+apt-get install -y python2
 fi
 }
 Centos_yum(){
