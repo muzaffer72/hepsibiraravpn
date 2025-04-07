@@ -89,7 +89,7 @@ Get_IP(){
 }
 Get_User_info(){
 	Get_user_port=$1
-	user_info_get=$(python mujson_mgr.py -l -p "${Get_user_port}")
+	user_info_get=$(python2 mujson_mgr.py -l -p "${Get_user_port}")
 	match_info=$(echo "${user_info_get}"|grep -w "### user ")
 	if [[ -z "${match_info}" ]]; then
 		echo -e "${Error} Failed to get user information $ {Green Font Prefix} [Port: $ {ssh port}] $ {Font_color Suffix} " && exit 1
@@ -364,7 +364,7 @@ Set_config_all(){
 	fi
 }
 Modify_config_password(){
-	match_edit=$(python mujson_mgr.py -e -p "${ssr_port}" -k "${ssr_password}"|grep -w "edit user ")
+	match_edit=$(python2 mujson_mgr.py -e -p "${ssr_port}" -k "${ssr_password}"|grep -w "edit user ")
 	if [[ -z "${match_edit}" ]]; then
 		echo -e "${Error} User password modification failed ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} " && exit 1
 	else
@@ -379,15 +379,15 @@ Modify_user_api_server_pub_addr(){
 }
 centos_View_user_connection_info(){
 	format_1=$1
-	user_info=$(python mujson_mgr.py -l)
+	user_info=$(python2 mujson_mgr.py -l)
 	user_total=$(echo "${user_info}"|wc -l)
 	[[ -z ${user_info} ]] && echo -e "${Error} Didn't find the user, please check again !" && exit 1
-	IP_total=`netstat -anp |grep 'ESTABLISHED' |grep 'python' |grep 'tcp' | grep '::ffff:' |awk '{print $5}' |awk -F ":" '{print $4}' |sort -u |wc -l`
+	IP_total=`netstat -anp |grep 'ESTABLISHED' |grep 'python2' |grep 'tcp' | grep '::ffff:' |awk '{print $5}' |awk -F ":" '{print $4}' |sort -u |wc -l`
 	user_list_all=""
 	for((integer = 1; integer <= ${user_total}; integer++))
 	do
 		user_port=$(echo "${user_info}"|sed -n "${integer}p"|awk '{print $4}')
-		user_IP_1=`netstat -anp |grep 'ESTABLISHED' |grep 'python' |grep 'tcp' |grep ":${user_port} "|grep '::ffff:' |awk '{print $5}' |awk -F ":" '{print $4}' |sort -u`
+		user_IP_1=`netstat -anp |grep 'ESTABLISHED' |grep 'python2' |grep 'tcp' |grep ":${user_port} "|grep '::ffff:' |awk '{print $5}' |awk -F ":" '{print $4}' |sort -u`
 		if [[ -z ${user_IP_1} ]]; then
 			user_IP_total="0"
 		else
@@ -406,15 +406,15 @@ centos_View_user_connection_info(){
 }
 debian_View_user_connection_info(){
 	format_1=$1
-	user_info=$(python mujson_mgr.py -l)
+	user_info=$(python2 mujson_mgr.py -l)
 	user_total=$(echo "${user_info}"|wc -l)
 	[[ -z ${user_info} ]] && echo -e "${Error} Didn't find the user, please check again! " && exit 1
-	IP_total=`netstat -anp |grep 'ESTABLISHED' |grep 'python' |grep 'tcp6' |awk '{print $5}' |awk -F ":" '{print $1}' |sort -u |wc -l`
+	IP_total=`netstat -anp |grep 'ESTABLISHED' |grep 'python2' |grep 'tcp6' |awk '{print $5}' |awk -F ":" '{print $1}' |sort -u |wc -l`
 	user_list_all=""
 	for((integer = 1; integer <= ${user_total}; integer++))
 	do
 		user_port=$(echo "${user_info}"|sed -n "${integer}p"|awk '{print $4}')
-		user_IP_1=`netstat -anp |grep 'ESTABLISHED' |grep 'python' |grep 'tcp6' |grep ":${user_port} " |awk '{print $5}' |awk -F ":" '{print $1}' |sort -u`
+		user_IP_1=`netstat -anp |grep 'ESTABLISHED' |grep 'python2' |grep 'tcp6' |grep ":${user_port} " |awk '{print $5}' |awk -F ":" '{print $1}' |sort -u`
 		if [[ -z ${user_IP_1} ]]; then
 			user_IP_total="0"
 		else
@@ -472,7 +472,7 @@ get_IP_address(){
 	fi
 }
 List_port_user(){
-	user_info=$(python mujson_mgr.py -l)
+	user_info=$(python2 mujson_mgr.py -l)
 	user_total=$(echo "${user_info}"|wc -l)
 	[[ -z ${user_info} ]] && echo -e "${Error} Didn't find the user, please check again! " && exit 1
 	user_list_all=""
@@ -540,7 +540,7 @@ Clear_transfer_one(){
 		[[ -z "${Clear_transfer_user_port}" ]] && echo -e "Dibatalkan..." && exit 1
 		Clear_transfer_user=$(cat "${config_user_mudb_file}"|grep '"port": '"${Clear_transfer_user_port}"',')
 		if [[ ! -z ${Clear_transfer_user} ]]; then
-			match_clear=$(python mujson_mgr.py -c -p "${Clear_transfer_user_port}"|grep -w "clear user ")
+			match_clear=$(python2 mujson_mgr.py -c -p "${Clear_transfer_user_port}"|grep -w "clear user ")
 			if [[ -z "${match_clear}" ]]; then
 				echo -e "${Error} Failed to reset data used by the user ${Green_font_prefix}[Port: ${Clear_transfer_user_port}]${Font_color_suffix} "
 			else
@@ -554,13 +554,13 @@ Clear_transfer_one(){
 }
 Clear_transfer_all(){
 	cd "${ssr_folder}"
-	user_info=$(python mujson_mgr.py -l)
+	user_info=$(python2 mujson_mgr.py -l)
 	user_total=$(echo "${user_info}"|wc -l)
 	[[ -z ${user_info} ]] && echo -e "${Error} No users were found, please check!" && exit 1
 	for((integer = 1; integer <= ${user_total}; integer++))
 	do
 		user_port=$(echo "${user_info}"|sed -n "${integer}p"|awk '{print $4}')
-		match_clear=$(python mujson_mgr.py -c -p "${user_port}"|grep -w "clear user ")
+		match_clear=$(python2 mujson_mgr.py -c -p "${user_port}"|grep -w "clear user ")
 		if [[ -z "${match_clear}" ]]; then
 			echo -e "${Error} Failed to reset data used by the user ${Green_font_prefix}[Port: ${user_port}]${Font_color_suffix} "
 		else

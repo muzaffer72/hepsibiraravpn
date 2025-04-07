@@ -36,7 +36,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/usr/local/shadowsocksr/akun.conf")
 	# remove [Peer] block matching $CLIENT_NAME
 	sed -i "/^### $CLIENT_NAME/d" "/usr/local/shadowsocksr/akun.conf"
 cd /usr/local/shadowsocksr
-match_del=$(python mujson_mgr.py -d -u "${user}"|grep -w "delete user")
+match_del=$(python2 mujson_mgr.py -d -u "${user}"|grep -w "delete user")
 cd
 service cron restart
 /etc/init.d/ssrmu restart

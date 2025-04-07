@@ -63,7 +63,7 @@ exp2=$(( (d1 - d2) / 86400 ))
 if [[ "$exp2" = "0" ]]; then
 sed -i "/^### $user $exp/d" "/usr/local/shadowsocksr/akun.conf"
 cd /usr/local/shadowsocksr
-match_del=$(python mujson_mgr.py -d -u "${user}"|grep -w "delete user")
+match_del=$(python2 mujson_mgr.py -d -u "${user}"|grep -w "delete user")
 cd
 fi
 done

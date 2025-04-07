@@ -32,7 +32,7 @@ do_start(){
 	else
 		cd ${FOLDER}
 		#python_ver=$(ls /usr/bin|grep -e "^python[23]\.[1-9]\+$"|tail -1)
-		python_ver="python"
+		python_ver="python2"
 		ulimit -n 512000
 		nohup "${python_ver}" "$BIN" a >> ssserver.log 2>&1 &
 		sleep 2s
