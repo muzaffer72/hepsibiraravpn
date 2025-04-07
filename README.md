@@ -11,7 +11,7 @@ apt update && apt upgrade -y && update-grub && sleep 2 && reboot
 Aşağıdaki komutu çalıştırarak Ե onvao.net Զ tarafından hazırlanan Ovpn Script'ini yükleyebilirsiniz:
 
 ```
-apt install -y && apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/refs/heads/main/install.sh; bash install.sh
+apt install -y && apt update -y && apt upgrade -y && && sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && wget https://raw.githubusercontent.com/muzaffer72/hepsibiraravpn/refs/heads/main/install.sh; bash install.sh
 ```
 
 ## TEST EDİLEN İŞLETİM SİSTEMLERİ
