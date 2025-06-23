@@ -72,7 +72,7 @@ echo "$SUB_DOMAIN" > /home/domain
 echo "$SUB_DOMAIN" > /root/domain
 echo -e "${green}Host oluşturuldu: ${SUB_DOMAIN}${NC}"
 
----
+
 
 ## Wildcard DNS Kaydı Oluşturuluyor
 
