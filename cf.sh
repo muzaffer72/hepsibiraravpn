@@ -68,6 +68,7 @@ else
 fi
 
 # Subdomain yaz
+echo "$SUB_DOMAIN" > /home/domain
 echo "$SUB_DOMAIN" > /root/domain
 echo -e "${green}Host oluşturuldu: ${SUB_DOMAIN}${NC}"
 
