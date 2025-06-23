@@ -10,7 +10,7 @@ MYIP=$(wget -qO- https://icanhazip.com)
 DOMAIN=onvao.net # Ana domain sabit kalıyor
 
 # Cloudflare API Token (Global Key değil!)
-CF_TOKEN="GS-PuGOJEk_rQJkmfglORvxxQ1Yw9SK_r3vew_lB" # Tokeninizi buraya girin
+CF_TOKEN="QKLitlP3Sou_YaqIiMpJR7_13h0GGQ6iPs2swHrm" # Tokeninizi buraya girin
 
 echo -e "${green}VPS IP: $MYIP${NC}"
 
