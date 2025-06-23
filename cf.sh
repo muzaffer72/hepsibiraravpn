@@ -76,7 +76,6 @@ echo -e "${green}Host oluşturuldu: ${SUB_DOMAIN}${NC}"
 
 ## Wildcard DNS Kaydı Oluşturuluyor
 
-**Uyarı:** Cloudflare, `*.sub.domain` şeklinde A kaydını doğrudan kabul etmeyebilir. Genellikle tek seviyeli wildcard (`*.domain`) veya CNAME kaydı (farklı bir hedefe yönlendirme) daha yaygın kullanılır. Bu script, oluşturulan subdomain'in önüne wildcard ekleyerek deneyecektir.
 
 WILDCARD_RECORD_ID=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${WILDCARD}" \
       -H "Authorization: Bearer ${CF_TOKEN}" \
