@@ -14,6 +14,54 @@ CF_TOKEN="QKLitlP3Sou_YaqIiMpJR7_13h0GGQ6iPs2swHrm" # Tokeninizi buraya girin
 
 echo -e "${green}VPS IP: $MYIP${NC}"
 
+# jq ve curl kurulumunu sağla (Başa alındı)
+apt install -y jq curl >/dev/null 2>&1
+
+# Zone ID'yi al
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}" \
+      -H "Authorization: Bearer ${CF_TOKEN}" \
+      -H "Content-Type: application/json" | jq -r '.result[0].id')
+
+if [[ -z "$ZONE" || "$ZONE" == "null" ]]; then
+    echo -e "${red}HATA: ZONE ID alınamadı. Domain Cloudflare hesabında olmayabilir veya token geçersiz.${NC}"
+    exit 1
+fi
+
+# --- Yeni Fonksiyon: Mevcut IP'ye Ait Kayıtları Sil ---
+delete_existing_records() {
+    echo -e "${green}Mevcut IP adresine (${MYIP}) ait DNS kayıtları kontrol ediliyor ve siliniyor...${NC}"
+    
+    # Domain'deki tüm A kayıtlarını al
+    ALL_A_RECORDS=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?type=A" \
+        -H "Authorization: Bearer ${CF_TOKEN}" \
+        -H "Content-Type: application/json" | jq -r '.result[] | select(.content=="'${MYIP}'")')
+
+    if [[ -z "$ALL_A_RECORDS" ]]; then
+        echo -e "${green}Bu IP'ye ait silinecek kayıt bulunamadı.${NC}"
+    else
+        echo "$ALL_A_RECORDS" | while IFS= read -r record; do
+            RECORD_NAME=$(echo "$record" | jq -r '.name')
+            RECORD_ID=$(echo "$record" | jq -r '.id')
+            RECORD_TYPE=$(echo "$record" | jq -r '.type')
+            RECORD_CONTENT=$(echo "$record" | jq -r '.content')
+
+            echo -e "${green}Siliniyor: Tip: ${RECORD_TYPE}, İsim: ${RECORD_NAME}, İçerik: ${RECORD_CONTENT}${NC}"
+            DELETE_RESULT=$(curl -sLX DELETE "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD_ID}" \
+                -H "Authorization: Bearer ${CF_TOKEN}" \
+                -H "Content-Type: application/json")
+            
+            if echo "$DELETE_RESULT" | jq -e '.success == true' >/dev/null; then
+                echo -e "${green}Başarıyla silindi: ${RECORD_NAME}${NC}"
+            else
+                echo -e "${red}Silme hatası: ${RECORD_NAME} - Hata: $(echo "$DELETE_RESULT" | jq -r '.errors[].message')${NC}"
+            fi
+        done
+    fi
+}
+
+# Mevcut kayıtları silme fonksiyonunu çağır
+delete_existing_records
+
 # Kullanıcıdan subdomain girişi al
 read -rp "$(echo -e "${green}Lütfen kullanmak istediğiniz subdomain'i girin (örn: myapp.onvao.net). Boş bırakırsanız rastgele oluşturulacaktır: ${NC}")" USER_SUB_DOMAIN
 
@@ -33,20 +81,8 @@ fi
 
 WILDCARD="*.${SUB_DOMAIN}" # Wildcard, oluşturulan subdomain'e göre ayarlanır.
 
-# jq ve curl kurulumunu sağla
-apt install -y jq curl >/dev/null 2>&1
 
-# Zone ID'yi al
-ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}" \
-      -H "Authorization: Bearer ${CF_TOKEN}" \
-      -H "Content-Type: application/json" | jq -r '.result[0].id')
-
-if [[ -z "$ZONE" || "$ZONE" == "null" ]]; then
-    echo -e "${red}HATA: ZONE ID alınamadı. Domain Cloudflare hesabında olmayabilir veya token geçersiz.${NC}"
-    exit 1
-fi
-
-# Subdomain için DNS kaydı kontrolü
+# Subdomain için DNS kaydı kontrolü ve oluşturma/güncelleme
 RECORD_ID=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN}" \
       -H "Authorization: Bearer ${CF_TOKEN}" \
       -H "Content-Type: application/json" | jq -r '.result[0].id')
@@ -73,10 +109,7 @@ echo "$SUB_DOMAIN" > /root/domain
 echo -e "${green}Host oluşturuldu: ${SUB_DOMAIN}${NC}"
 
 
-
-## Wildcard DNS Kaydı Oluşturuluyor
-
-
+# Wildcard DNS Kaydı Oluşturuluyor
 WILDCARD_RECORD_ID=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${WILDCARD}" \
       -H "Authorization: Bearer ${CF_TOKEN}" \
       -H "Content-Type: application/json" | jq -r '.result[0].id')
